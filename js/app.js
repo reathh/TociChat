@@ -1,8 +1,8 @@
-var LoginRegisterApp = angular
-    .module('LoginRegisterApp', ['ngResource', 'ngRoute', 'ngMessages'])
+var tociChatApp = angular
+    .module('tociChatApp', ['ngResource', 'ngRoute', 'ngMessages'])
     .config(function($routeProvider) {
         $routeProvider
-            .when('/welcome', {
+            .when('/', {
                 templateUrl: 'templates/general/welcome-screen.html'
             })
             .when('/register', {
@@ -11,8 +11,11 @@ var LoginRegisterApp = angular
             .when('/login', {
                 templateUrl: 'templates/user/login.html'
             })
+            .when('/user/home', {
+                templateUrl: 'templates/user/home.html'
+            })
 
             .otherwise({
-                redirectTo: '/welcome'
+                redirectTo: '/'
             })
     });

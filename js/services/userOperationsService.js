@@ -1,4 +1,4 @@
-LoginRegisterApp.factory('userOperations', function ($resource) {
+tociChatApp.factory('userOperations', function ($resource) {
     var resource = $resource('', {}, {
         registerUser: {
             method: 'POST',
@@ -34,8 +34,25 @@ LoginRegisterApp.factory('userOperations', function ($resource) {
             sessionStorage.setItem('user', JSON.stringify(user));
         }
     }
+
+    function isUserLoggedIn() {
+        return localStorage.getItem('user') != null || sessionStorage.getItem('user') != null;
+    }
+
+    function getLoggedInUser() {
+        var user = localStorage.getItem('user') || sessionStorage.getItem('user');
+        return JSON.parse(user);
+    }
+
+    function logout() {
+        localStorage.clear();
+        sessionStorage.clear();
+    }
     return {
         register: registerUser,
-        login: loginUser
+        login: loginUser,
+        isLoggedIn: isUserLoggedIn,
+        getLoggedInUser: getLoggedInUser,
+        logout: logout
     }
 });

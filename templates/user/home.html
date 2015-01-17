@@ -1,0 +1,8 @@
+<div ng-controller="UserHomeController" class="text-center">
+    <div class="container-fluid">
+        <p id="user-info">
+            Logged in as: <strong>{{currentUser.fullName}} ({{currentUser.username}})</strong>
+        </p>
+        <p><a href="#/" ng-click="logout()" class="btn btn-link">Logout</a></p>
+    </div>
+</div>

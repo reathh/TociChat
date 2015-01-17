@@ -17,4 +17,4 @@ var compareTo = function() {
     };
 };
 
-LoginRegisterApp.directive("compareTo", compareTo);
+tociChatApp.directive("compareTo", compareTo);

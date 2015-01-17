@@ -27,3 +27,7 @@ header h1 {
     padding: 10px;
     border-radius: 5px;
 }
+
+#user-info {
+    margin-bottom: 0;
+}
