@@ -1,4 +1,4 @@
-tociChatApp.factory('userInteractions', function () {
+LoginRegisterApp.factory('userInteractions', function () {
     function notyInCustomContainer(container, type, text, timeInSeconds) {
 
         // Position:

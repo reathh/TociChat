@@ -1,5 +1,5 @@
-var tociChatApp = angular
-    .module('tociChatApp', ['ngResource', 'ngRoute', 'ngMessages'])
+var LoginRegisterApp = angular
+    .module('LoginRegisterApp', ['ngResource', 'ngRoute', 'ngMessages'])
     .config(function($routeProvider) {
         $routeProvider
             .when('/welcome', {

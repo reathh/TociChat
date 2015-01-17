@@ -1,4 +1,4 @@
-tociChatApp.factory('userOperations', function ($resource) {
+LoginRegisterApp.factory('userOperations', function ($resource) {
     var resource = $resource('', {}, {
         registerUser: {
             method: 'POST',

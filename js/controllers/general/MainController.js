@@ -1,3 +1,3 @@
-tociChatApp.controller('MainController', function ($scope, $resource) {
+LoginRegisterApp.controller('MainController', function ($scope, $resource) {
 
 });
