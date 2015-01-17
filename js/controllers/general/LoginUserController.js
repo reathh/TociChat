@@ -2,6 +2,11 @@ tociChatApp.controller('LoginUserController', function ($scope, $location, userI
     $scope.loginUser = loginUser;
 
     function loginUser(user) {
-        userOperations.login(user);
+        userOperations.login(user).then(function () {
+            userInteractions.informUserTopCenter('success', "Login successful", 3);
+            $location.path('/user/home')
+        }, function (err) {
+            userInteractions.informUserInCustomContainer('#noty-area', 'error', err.data, 2)
+        })
     }
 });
