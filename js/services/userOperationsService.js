@@ -17,14 +17,17 @@ tociChatApp.factory('userOperations', function ($resource) {
             .$promise;
     }
 
-    function loginUser(user, rememberUser) {
+    function loginUser(user) {
         return resource.loginUser(user, function (data) {
-            saveUserToStorage(data, rememberUser);
+            saveUserToStorage(data, user.rememberUser);
         })
             .$promise;
     }
 
     function saveUserToStorage(user, rememberUser) {
+        localStorage.clear();
+        sessionStorage.clear();
+
         if (rememberUser) {
             localStorage.setItem('user', JSON.stringify(user));
         } else {

@@ -1,6 +1,6 @@
 <div ng-controller="LoginUserController" class="text-center">
     <div id="noty-area"></div>
-    <form name="loginForm" class="form-horizontal container-fluid" ng-submit="loginUser(user, rememberUser)">
+    <form name="loginForm" class="form-horizontal container-fluid" ng-submit="loginUser(user)">
         <fieldset>
             <legend>Login</legend>
             <div class="form-group">
@@ -18,7 +18,7 @@
                 <div ng-messages="loginForm.password.$error" ng-messages-include="templates/general/form-validation-messages.html"></div>
             </div>
             <label>
-                <input type="checkbox" ng-model="rememberUser"> Remember me
+                <input type="checkbox" ng-model="user.rememberUser"> Remember me
             </label>
             <div class="form-group">
                 <button type="submit" class="btn btn-success" ng-disabled="loginForm.$invalid">Login!</button>
