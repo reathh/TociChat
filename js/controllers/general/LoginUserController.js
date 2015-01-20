@@ -4,7 +4,7 @@ tociChatApp.controller('LoginUserController', function ($scope, $location, userI
     function loginUser(user) {
         userOperations.login(user).then(function () {
             userInteractions.informUserTopCenter('success', "Login successful", 3);
-            $location.path('/user/home')
+            $location.path('/user/chat')
         }, function (err) {
             userInteractions.informUserInCustomContainer('#noty-area', 'error', err.data, 2)
         })

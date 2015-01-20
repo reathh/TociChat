@@ -11,7 +11,7 @@ var tociChatApp = angular
             .when('/login', {
                 templateUrl: 'templates/user/login.html'
             })
-            .when('/user/home', {
+            .when('/user/chat', {
                 templateUrl: 'templates/user/home.html'
             })
 
