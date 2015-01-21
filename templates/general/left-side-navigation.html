@@ -1,0 +1,9 @@
+<div class="container-fluid" ng-controller="NavigationController">
+    <div class="jumbotron col-md-2">
+        <ul id="navigation-items">
+            <li class="navigation-item" ng-repeat="navItem in navItems">
+                <a href="{{navItem.url}}">{{navItem.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

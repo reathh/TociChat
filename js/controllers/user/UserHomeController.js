@@ -1,4 +1,4 @@
-tociChatApp.controller('UserHomeController', function ($scope, userOperations) {
+tociChatUserApp.controller('UserHomeController', function ($scope, userOperations) {
     $scope.currentUser = userOperations.getLoggedInUser();
     $scope.logout = logout;
 

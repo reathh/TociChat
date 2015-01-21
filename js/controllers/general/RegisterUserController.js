@@ -1,4 +1,4 @@
-tociChatApp.controller('RegisterUserController', function ($scope, $location, userInteractions, userOperations) {
+tociLoginRegisterApp.controller('RegisterUserController', function ($scope, $location, userInteractions, userOperations) {
     $scope.registerUser = registerUser;
 
     function registerUser(user) {

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="css/app.css" />
 </head>
-<body ng-app="tociChatApp" ng-controller="MainController" ng-cloak>
+<body>
 <header class="text-center">
     <div class="container-fluid">
         <div class="col-md-4 col-md-offset-4">
@@ -15,9 +15,24 @@
         </div>
     </div>
 </header>
-<main ng-view>
 
-</main>
+
+<div id="tociLoginRegisterApp" ng-controller="MainController">
+        <div ng-view>
+
+        </div>
+</div>
+
+
+<div id="tociChatUserApp" ng-controller="MainController">
+    <div ng-if="showUserModule">
+        <div ng-include src="'templates/user/top-user-info.html'"></div>
+        <div ng-include src="'templates/general/left-side-navigation.html'"></div>
+            <div ng-view>
+
+            </div>
+    </div>
+</div>
 <footer class="text-center">
     <hr/>
     Made by Reath
@@ -31,21 +46,28 @@
 <script src="node_modules/angular-route/angular-route.js"></script>
 <script src="node_modules/angular-messages/angular-messages.js"></script>
 
-
 <script src="libs/bootbox.min.js"></script>
 
-<script src="js/app.js"></script>
+<script src="js/mainApp.js"></script>
+<script src="js/tociLoginRegisterApp.js"></script>
+<script src="js/tociChatUserApp.js"></script>
 
 <script src="js/controllers/general/MainController.js"></script>
 <script src="js/controllers/general/RegisterUserController.js"></script>
 <script src="js/controllers/general/LoginUserController.js"></script>
+<script src="js/controllers/general/NavigationController.js"></script>
 <script src="js/controllers/user/UserHomeController.js"></script>
-
 
 <script src="js/services/userOperationsService.js"></script>
 <script src="js/services/userInteractionsService.js"></script>
 
 <script src="js/directives/compareToDirective.js"></script>
 
+<script>
+    angular.element(document).ready(function() {
+        angular.bootstrap(document.getElementById('tociLoginRegisterApp'), ['tociLoginRegisterApp', 'mainApp']);
+        angular.bootstrap(document.getElementById('tociChatUserApp'), ['tociChatUserApp', 'mainApp']);
+    });
+</script>
 </body>
 </html>
