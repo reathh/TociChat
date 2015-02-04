@@ -1,0 +1,3 @@
+mainApp.factory('chatOperations', function () {
+
+});

@@ -6,6 +6,7 @@ tociLoginRegisterApp.controller('RegisterUserController', function ($scope, $loc
             userInteractions.informUserTopCenter('success', "Registration successful, you're now logged in", 3);
             $location.path('/user/chat')
         }, function (err) {
+            console.log(err);
             userInteractions.informUserInCustomContainer('#noty-area', 'error', err.data, 2)
         })
     }

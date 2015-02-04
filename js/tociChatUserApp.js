@@ -5,5 +5,13 @@ var tociChatUserApp = angular
             .when('/user/chat', {
                 templateUrl: 'templates/user/chat.html'
             })
-
+            .when('/user/profile', {
+                templateUrl: 'templates/user/profile.html'
+            })
+    }).factory('socket', function (socketFactory, baseUrlApi) {
+        var myIoSocket = io.connect(baseUrlApi);
+        var mySocket = socketFactory({
+            ioSocket: myIoSocket
+        });
+        return mySocket;
     });

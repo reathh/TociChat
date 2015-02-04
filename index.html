@@ -18,19 +18,24 @@
 
 
 <div id="tociLoginRegisterApp" ng-controller="MainController">
+    <div ng-if="showLoginRegisterModule">
         <div ng-view>
 
         </div>
+    </div>
 </div>
 
 
 <div id="tociChatUserApp" ng-controller="MainController">
     <div ng-if="showUserModule">
-        <div ng-include src="'templates/user/top-user-info.html'"></div>
-        <div ng-include src="'templates/general/left-side-navigation.html'"></div>
-            <div ng-view>
+        <div class="container-fluid">
+            <div ng-include src="'templates/user/top-user-info.html'"></div>
+            <div ng-include src="'templates/general/left-side-navigation.html'"></div>
+            <div ng-view class="col-md-7">
 
             </div>
+            <div ng-include src="'templates/user/right-side-box.html'"></div>
+        </div>
     </div>
 </div>
 <footer class="text-center">
@@ -47,6 +52,8 @@
 <script src="node_modules/angular-messages/angular-messages.js"></script>
 
 <script src="libs/bootbox.min.js"></script>
+<script src="//localhost:8080/socket.io/socket.io.js"></script>
+<script src="libs/angular-socket-io/socket.js"></script>
 
 <script src="js/mainApp.js"></script>
 <script src="js/tociLoginRegisterApp.js"></script>
@@ -57,9 +64,12 @@
 <script src="js/controllers/general/LoginUserController.js"></script>
 <script src="js/controllers/general/NavigationController.js"></script>
 <script src="js/controllers/user/UserHomeController.js"></script>
+<script src="js/controllers/user/RightSideBoxController.js"></script>
+<script src="js/controllers/user/MyProfileController.js"></script>
 
 <script src="js/services/userOperationsService.js"></script>
 <script src="js/services/userInteractionsService.js"></script>
+<script src="js/services/chatOperationsService.js"></script>
 
 <script src="js/directives/compareToDirective.js"></script>
 

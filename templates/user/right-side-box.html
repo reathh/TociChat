@@ -1,0 +1,28 @@
+<div class="col-md-3 jumbotron text-center" id="right-side-box" ng-controller="RightSideBoxController">
+    <ul class="nav nav-tabs">
+        <li class="active" ng-click="changeToWhoIsActive()"><a href="#online" target="_self" data-toggle="tab" ng-click="changeToWhoIsActive">Who's Online</a></li>
+        <li ng-click="changeToFriends()"><a href="#friends" target="_self" data-toggle="tab">Friends</a></li>
+    </ul>
+    <div ng-if="users.length == 0">
+        <p>{{noUsersMessage}}</p>
+    </div>
+    <ul id="right-side-box-users">
+        <li ng-repeat="user in users" ng-animate="'animate'" class="right-side-box-user">
+            <div class="container-fluid">
+                <div class="col-md-5"><img src="" ng-src="user.avatar_dataurl" alt="User Avatar" class="right-side-box-user-image"/></div>
+                <div class="col-md-7">
+                    <h4>{{user.fullName}}</h4>
+                    <div class="container-fluid">
+                        <a href="#/" target="_self" class="right-side-box-user-full-name">{{user.username}}</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="container-fluid input-group">
+        <input type="text" class="form-control" ng-model="searchCriteria" placeholder="Search">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="searchUsers(searchCriteria)"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+    </div>
+</div>

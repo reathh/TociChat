@@ -1,12 +1,12 @@
-mainApp.factory('userOperations', function ($resource) {
+mainApp.factory('userOperations', function ($rootScope, $resource, baseUrlApi) {
     var resource = $resource('', {}, {
         registerUser: {
             method: 'POST',
-            url: 'http://ivelinkirilov.com/Projects/TociChat/API/register'
+            url: baseUrlApi + 'register'
         },
         loginUser: {
             method: 'POST',
-            url: 'http://ivelinkirilov.com/Projects/TociChat/API/login'
+            url: baseUrlApi + 'login'
         }
     });
 
@@ -47,12 +47,30 @@ mainApp.factory('userOperations', function ($resource) {
     function logout() {
         localStorage.clear();
         sessionStorage.clear();
+        $rootScope.$broadcast('loggedOut');
+    }
+
+    function getUsers(searchCriteria) {
+        var searchCriteriaUrl = searchCriteria ? "?searchCriteria=" + searchCriteria : "";
+        var url = baseUrlApi + 'users' + searchCriteriaUrl;
+        var getUsersResource = $resource('', {}, {
+            getUsers: {
+                headers: {
+                    'sessionKey': getLoggedInUser().sessionKey
+                },
+                method: "GET",
+                url: url,
+                isArray: true
+            }
+        });
+        return getUsersResource.getUsers();
     }
     return {
         register: registerUser,
         login: loginUser,
         isLoggedIn: isUserLoggedIn,
         getLoggedInUser: getLoggedInUser,
-        logout: logout
+        logout: logout,
+        getUsers: getUsers
     }
 });

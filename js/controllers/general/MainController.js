@@ -2,6 +2,9 @@ mainApp.controller('MainController', function ($scope, $location, userInteractio
     $scope.$on('$locationChangeStart', function() {
         checkLocation($location.path());
     });
+    //$scope.on('loggedOut', function () {
+    //    $scope.showUserModule = false;
+    //});
 
     function checkLocation(path) {
         if (path == '/login') {
@@ -27,10 +30,12 @@ mainApp.controller('MainController', function ($scope, $location, userInteractio
                 $location.path('/')
             } else {
                 $scope.showUserModule = true;
+                $scope.showLoginRegisterModule = false;
             }
         }
-        else if (!/\/user\/.*/.test(path)) {
+        if (/\/user\/.*/.test(path) == false) {
             $scope.showUserModule = false;
+            $scope.showLoginRegisterModule = true;
         }
     }
 
